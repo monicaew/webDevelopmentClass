@@ -58,6 +58,11 @@ types:
       403:
   get:
     description: Show all images
+    queryParameters:
+      username:
+        required: true
+        type: string
+
     responses:
       200:
         body:
