@@ -3,4 +3,26 @@ title: Photo Collection
 version: v1
 baseUri: http://api.samplehost.com
 
-# test file
+# A personal online image storage/display service.
+# Registered users can add/remove/update their own images,
+# and view the list of others.
+types:
+  Users:
+    type: object
+    properties:
+      username: string
+      password: string
+  images:
+    type: object
+    properties:
+      url: string
+      name: string
+
+
+/Users:
+
+/images:
+  post:
+    description: Insert a new image
+  get:
+    description: User's images
