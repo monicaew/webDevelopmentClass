@@ -6,23 +6,82 @@ baseUri: http://api.samplehost.com
 # A personal online image storage/display service.
 # Registered users can add/remove/update their own images,
 # and view the list of others.
+
 types:
   Users:
     type: object
     properties:
       username: string
       password: string
+      user_id: string
   images:
     type: object
     properties:
-      url: string
-      name: string
+      image_id: string
+      owner_id: string
+      title: string
+
 
 
 /Users:
+  /login:
+    post:
+      description: Get a login token
+  /newUser:
+    post:
+      description: Add a new user
+  /{user_id}:
+    get:
+      description: Get login credentials for user
+    put:
+      description: Change credentials for user
+    delete:
+      description: Remove the user from the system
+
 
 /images:
+  description: A users collection of images
   post:
     description: Insert a new image
+    body:
+      application/json:
+        example: |
+          {
+            "name": "Image Name",
+            "image_id": "356fgg33f-sdg32ed5",
+            "owner": "33rg45gw3"
+          }
+    responses:
+      201:
+      400:
+      401:
+      403:
   get:
-    description: User's images
+    description: Show all images
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "images" : [
+                  {
+                   "name": "Image Name",
+                   "image_id": "356fgg33f-sdg32ed5",
+                   "owner": "33rg45gw3"
+                  },
+                  {
+                   "name": "Another Image",
+                   "image_id": "43ggeerfd-e33sdfef",
+                   "owner": "33rg45gw3"
+                  }
+              ]}
+
+
+  /{image_id}:
+    get:
+      description: Show the selected image
+    patch:
+      description: Update image info
+    delete:
+      description: Remove an image
