@@ -45,12 +45,18 @@ schemas:
     description: View all photos
     responses:
       200:
+        body:
+          application/json:
+            schema: imageDataArr
 
   /{photo_id}:
     get:
       description: View a specific photo
       responses:
         200:
+          body:
+            application/json:
+              schema: imageData
 
     delete:
       description: Remove a specific photo
@@ -86,7 +92,9 @@ schemas:
       body:
         application/json:
           schema: imageData
-
       responses:
         201:
+          body:
+            application/json:
+              schema: imageData
         403:
