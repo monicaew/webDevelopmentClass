@@ -1,0 +1,46 @@
+{
+  "sessionData": {
+    "loggedIn": {
+      "type": "boolean",
+      "required": "true"
+    },
+    "canEdit": {
+      "type": "boolean",
+      "required": "true"
+    },
+    "username": {
+      "type": "string",
+      "required": "true"
+    },
+    "sessionCookie": {
+      "type": "string",
+      "required": "true"
+    },
+    "sessionData": {
+      "type": "string",
+      "required": "true"
+    }
+  },
+  "imageData": {
+    "title":{
+      "type": "string",
+      "required": "true"
+    },
+    "photo_id": {
+      "type": "string",
+      "required": "true"
+    },
+    "owner": {
+      "type": "string",
+      "required": "true"
+    },
+    "uploaded": {
+      "type": "string",
+      "required": "true"
+    },
+    "modified": {
+      "type": "string",
+      "required": "true"
+    }
+  }
+}

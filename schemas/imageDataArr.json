@@ -1,0 +1,27 @@
+{
+  "photos":
+  [
+    {
+      "title":{
+        "type": "string",
+        "required": "true"
+      },
+      "photo_id": {
+        "type": "string",
+        "required": "true"
+      },
+      "owner": {
+        "type": "string",
+        "required": "true"
+      },
+      "uploaded": {
+        "type": "string",
+        "required": "true"
+      },
+      "modified": {
+        "type": "string",
+        "required": "true"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "username": {
+    "type": "string",
+    "required": "true"
+    },
+  "email": {
+    "type": "string",
+    "required": "true"
+  },
+  "bio": {
+    "type": "string",
+    "required": "false"
+  },
+  "name": {
+    "type": "string",
+    "required": "false"
+  }
+}
