@@ -6,23 +6,87 @@ baseUri: http://api.samplehost.com
 # A personal online image storage/display service.
 # Registered users can add/remove/update their own images,
 # and view the list of others.
-types:
-  Users:
-    type: object
-    properties:
-      username: string
-      password: string
-  images:
-    type: object
-    properties:
-      url: string
-      name: string
 
+schemas:
+  imageData: !include /schemas/image-data.json
+  imageDataArr: !include /schemas/image-data-arr.json
 
-/Users:
+/users:
+  /login:
+    get:
+      description: Creates a new session
+    post:
+      description: Authenticates info (login)
+    delete:
+      description: deletes session (logout)
+    /{username}:
+      get:
+        description: Get users profile
+      post:
+        description: Update users profile
+      delete:
+        description: Remove users profile
 
-/images:
-  post:
-    description: Insert a new image
+  /signup:
+    get:
+      description: New signup page
+    post:
+      description: Records new signup info
+    /{username}:
+      get:
+        description: New users profile
+      post:
+        description: Update new user
+      delete:
+        description: Remove new user
+
+/photos:
   get:
-    description: User's images
+    description: View all photos
+    responses:
+      200:
+
+  /{photo_id}:
+    get:
+      description: View a specific photo
+      responses:
+        200:
+
+    delete:
+      description: Remove a specific photo
+      responses:
+        204:
+        404:
+
+    put:
+      description: Update a specific photo
+      body:
+        application/json:
+          schema: imageData
+      responses:
+          200:
+            body:
+              application/json:
+                schema: imageData
+          400:
+          403:
+
+  /{username}:
+    get:
+      description: View photos by username
+      responses:
+        200:
+          body:
+            application/json:
+              schema: imageDataArr
+        404:
+
+    post:
+      description: Upload a new photo
+      body:
+        application/json:
+          schema: imageData
+
+      responses:
+        201:
+        403:
